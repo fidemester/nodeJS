@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add prodcut</title>
+    <style>
+        body{
+            margin:0px;
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+        main{
+            padding: 1rem;
+        }
+        .main-header{
+            width: 100%;
+            height:3.5rem;
+            background-color: rgb(212, 201, 40);
+        }
+        .main-header__nav{
+            height:100%;
+            display:flex;
+            align-items: center;
+        }
+        .main-header__item-list{
+            list-style: none;
+            margin:0;
+            padding:0;
+            display:flex
+        }
+        .main-header__item {
+            margin: 0 3rem;
+            padding:0;
+        }
+        .main-header__item a{
+            margin:0;
+            padding:0;
+            color:white;
+            text-decoration: none;
+        }
+        .main-header__item a:hover,
+        .main-header__item a:active,
+        .main-header__item a:active{
+            color:aqua
+        }
+        .form-control label, .form-control input
+        {
+                border: 1px solid;
+                font:inherit
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a  href="/">Shop</a></li>
+                <li class="main-header__item"><a class= "active" href="/admin/add-product">Add productsa</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form class="product-form" action="/admin/add-product" method="POST">
+           
+            <input type="text" name="title">
+            <button type="submit">Add Product</button>
+        </form>
+    </main>
+</body>
+</html>

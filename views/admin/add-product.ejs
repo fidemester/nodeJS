@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <style>
+        body{
+            margin:0px;
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+        main{
+            padding: 1rem;
+        }
+        .main-header{
+            width: 100%;
+            height:3.5rem;
+            background-color: rgb(212, 201, 40);
+        }
+        .main-header__nav{
+            height:100%;
+            display:flex;
+            align-items: center;
+        }
+        .main-header__item-list{
+            list-style: none;
+            margin:0;
+            padding:0;
+            display:flex
+        }
+        .main-header__item {
+            margin: 0 3rem;
+            padding:0;
+        }
+        .main-header__item a{
+            margin:0;
+            padding:0;
+            color:white;
+            text-decoration: none;
+        }
+        .main-header__item a:hover,
+        .main-header__item a:active,
+        .main-header__item a:active{
+            color:aqua
+        }
+        .form-control label, .form-control input
+        {
+                border: 1px solid;
+                font:inherit
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a class= "<%= path === '/' ? 'active' : '' %>" href="/">Shop</a></li>
+                <li class="main-header__item"><a class= "<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add product</a>
+                </li>
+                <li class="main-header__item">
+                    <a class= "<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>
+                </li>
+                <li class="main-header__item">
+                    <a class= "<%= path === '/cart' ? 'active' : '' %>" href="/card">Cart</a>
+                </li>
+                <li class="main-header__item">
+                    <a class= "<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form class="product-form" action="/admin/add-product" method="POST">
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="form-control">
+                <label for="imageUrl">Image url</label>
+                <input type="text" name="imageUrl" id="imageUrl">
+            </div>
+            <div class="form-control">
+                <label for="price">Price</label>
+                <input type="number" name="price" id="price">
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea name="description" name="description" id="description" rows="5"></textarea>
+            </div>
+            <button class="btn" type="submit">Add Product</button>
+        </form>
+    </main>
+</body>
+</html>

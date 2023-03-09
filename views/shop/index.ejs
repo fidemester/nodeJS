@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a class= "<%= path === '/' ? 'active' : '' %>" href="/">Shop</a></li>
+                <li class="main-header__item"><a class= "<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add product</a>
+                </li>
+                <li class="main-header__item">
+                    <a class= "<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>
+                </li>
+                <li class="main-header__item">
+                    <a class= "<%= path === '/cart' ? 'active' : '' %>" href="/card">Cart</a>
+                </li>
+                <li class="main-header__item">
+                    <a class= "<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <% if (prods.length  > 0){ %>
+            <div class="grid">
+                <% for (let product of prods) { %>
+                    <article class="card product-item">
+                        <header class="card_header">
+                            <h1 class="product_title">
+                                <%= product.title %>
+                            </h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="<%= product.imageUrl %>", alt="<%= product.title %>">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price"><%= product.price %></h2>
+                            <p class="product__desciption"><%= product.description %></p>
+                        </div>
+                        <div class="card__actions">
+                            <%- include('../includes/add-to-card.ejs',{product:product}) %>
+                        </div>
+                    </article>
+                <% } %>
+                </div>
+            <% } else { %>
+                 <h1> No product found!?</h1>
+                <% } %>
+    </main>
+</body>
+</html>
